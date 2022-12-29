@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
 
-function SoundEffectPlayer({ sound, name, changeDictionary }) {
+function SoundEffectPlayer({ sound, name, changeDictionary, cookies }) {
   let [audio] = useState(new Audio(sound)); 
   let [playing, setPlaying] = useState(false);
-  let [volume, setVolume] = useState(0.5)
+  let [volume, setVolume] = useState(() => {
+    if (cookies[name] != undefined){
+      return cookies[name]
+    }
+    else{
+      return null
+    }
+  })
 
   
   const playAudio = () => {
@@ -27,7 +34,7 @@ function SoundEffectPlayer({ sound, name, changeDictionary }) {
   return (
     <div> 
       <button onClick={playAudio}>{playing ? "Stop" : name}</button>
-      <input type="range" max="100" min="0" onChange={(event) => setVolume(event.target.value / 100)}></input>
+      <input type="range" max="100" min="0" onChange={(event) => setVolume(event.target.value / 100)} value={String(cookies[name] * 100)}></input>
     </div>
   );
 }
