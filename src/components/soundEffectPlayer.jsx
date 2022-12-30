@@ -32,7 +32,7 @@ function SoundEffectPlayer({ sound, name, changeDictionary, cookies }) {
   }, [volume, setVolume, audio])
 
   return (
-    <div> 
+    <div className=""> 
       <button onClick={playAudio}>{playing ? "Stop" : name}</button>
       <input type="range" max="100" min="0" onChange={(event) => setVolume(event.target.value / 100)} value={String(cookies[name] * 100)}></input>
     </div>

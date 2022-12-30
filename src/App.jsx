@@ -41,11 +41,15 @@ function App() {
 
   return (
     <CookiesProvider>
-      <SoundEffectPlayer sound={fire} name={"Fire"} changeDictionary={changeDictionary} cookies={cookies}/>
-      <SoundEffectPlayer sound={wind} name={"Wind"} changeDictionary={changeDictionary} cookies={cookies}/>
-      <SoundEffectPlayer sound={rain} name={"Rain"} changeDictionary={changeDictionary} cookies={cookies}/>
-      <AudioPlayer changeDictionary={changeDictionary} cookies={cookies}/>
-      <Clock />
+      <section className='h-screen overflow-auto text-white bg-black'>
+        <div className='bg-slate-800 rounded-xl w-min p-3 m-3'>
+          <SoundEffectPlayer sound={fire} name={"Fire"} changeDictionary={changeDictionary} cookies={cookies}/>
+          <SoundEffectPlayer sound={wind} name={"Wind"} changeDictionary={changeDictionary} cookies={cookies}/>
+          <SoundEffectPlayer sound={rain} name={"Rain"} changeDictionary={changeDictionary} cookies={cookies}/>
+        </div>
+        <AudioPlayer changeDictionary={changeDictionary} cookies={cookies} />
+        <Clock />
+      </section>
     </CookiesProvider>
   );
 }

@@ -23,7 +23,7 @@ function AudioPlayer({ changeDictionary, cookies }){
   }, [setAudioVolume, audioVolume])
 
   return (
-    <div>
+    <div className='bg-slate-800 rounded-xl w-min p-3 m-3' >
       <button onClick={playAudio}>{playingAudio ? "Pause" : "Play"}</button>
       <input type="range" max='100' min='0' onChange={(event) => setAudioVolume(parseFloat(event.target.value) / 100)} value={String(audioVolume * 100)}></input>
       <ReactPlayer url='https://www.youtube.com/watch?v=jfKfPfyJRdk&ab_channel=LofiGirl' playing={playingAudio} width='0' height="0" volume={parseFloat(audioVolume)} loop={true} />

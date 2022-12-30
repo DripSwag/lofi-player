@@ -54,7 +54,7 @@ function Clock(){
   });
 
   return(
-    <div>
+    <div className='bg-slate-800 rounded-xl w-[153px] p-3 m-3' >
       <h1>{secondsMath("//")}:{secondsMath("%")}</h1>
       <p>{study ? "Studying" : "Resting"}</p>
       <button onClick={startTimer}>{active ? "Stop" : "Start"}</button>
