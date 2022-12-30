@@ -26,7 +26,7 @@ function AudioPlayer({ changeDictionary, cookies }){
     <div>
       <button onClick={playAudio}>{playingAudio ? "Pause" : "Play"}</button>
       <input type="range" max='100' min='0' onChange={(event) => setAudioVolume(parseFloat(event.target.value) / 100)} value={String(audioVolume * 100)}></input>
-      <ReactPlayer url='https://www.youtube.com/watch?v=jfKfPfyJRdk&ab_channel=LofiGirl' playing={playingAudio} width='0' height="0" volume={audioVolume} loop={true} />
+      <ReactPlayer url='https://www.youtube.com/watch?v=jfKfPfyJRdk&ab_channel=LofiGirl' playing={playingAudio} width='0' height="0" volume={parseFloat(audioVolume)} loop={true} />
     </div>
   ); 
 }  
