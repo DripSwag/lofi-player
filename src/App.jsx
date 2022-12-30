@@ -1,5 +1,7 @@
 import SoundEffectPlayer from './components/soundEffectPlayer.jsx'
 import fire from './assets/fire.mp3'
+import rain from './assets/rain.mp3'
+import wind from './assets/wind.mp3'
 import AudioPlayer from './components/audioPlayer.jsx';
 import React, { useState, useEffect, useCallback } from 'react'
 import { Cookies, CookiesProvider, useCookies } from 'react-cookie';
@@ -40,6 +42,8 @@ function App() {
   return (
     <CookiesProvider>
       <SoundEffectPlayer sound={fire} name={"Fire"} changeDictionary={changeDictionary} cookies={cookies}/>
+      <SoundEffectPlayer sound={wind} name={"Wind"} changeDictionary={changeDictionary} cookies={cookies}/>
+      <SoundEffectPlayer sound={rain} name={"Rain"} changeDictionary={changeDictionary} cookies={cookies}/>
       <AudioPlayer changeDictionary={changeDictionary} cookies={cookies}/>
       <Clock />
     </CookiesProvider>
