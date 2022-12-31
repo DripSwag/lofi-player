@@ -8,7 +8,7 @@ function AudioPlayer({ changeDictionary, cookies }){
       return cookies.Audio
     }
     else{
-      return null
+      return 0.5 
     }
   })
 
@@ -23,9 +23,9 @@ function AudioPlayer({ changeDictionary, cookies }){
   }, [setAudioVolume, audioVolume])
 
   return (
-    <div className='bg-slate-800 rounded-xl w-min p-3 m-3' >
+    <div className='bg-neutral-800 rounded-xl w-min p-3 m-3 border-2 border-neutral-600' >
       <button onClick={playAudio}>{playingAudio ? "Pause" : "Play"}</button>
-      <input type="range" max='100' min='0' onChange={(event) => setAudioVolume(parseFloat(event.target.value) / 100)} value={String(audioVolume * 100)}></input>
+      <input type="range" max='100' min='0' className="accent-[#A7C7E7]" onChange={(event) => setAudioVolume(parseFloat(event.target.value) / 100)} value={String(audioVolume * 100)}></input>
       <ReactPlayer url='https://www.youtube.com/watch?v=jfKfPfyJRdk&ab_channel=LofiGirl' playing={playingAudio} width='0' height="0" volume={parseFloat(audioVolume)} loop={true} />
     </div>
   ); 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function SoundEffectPlayer({ sound, name, changeDictionary, cookies }) {
+function SoundEffectPlayer({ sound, name, changeDictionary, cookies, icon }) {
   let [audio] = useState(new Audio(sound)); 
   let [playing, setPlaying] = useState(false);
   let [volume, setVolume] = useState(() => {
@@ -8,7 +8,7 @@ function SoundEffectPlayer({ sound, name, changeDictionary, cookies }) {
       return cookies[name]
     }
     else{
-      return null
+      return 0.5 
     }
   })
 
@@ -32,9 +32,9 @@ function SoundEffectPlayer({ sound, name, changeDictionary, cookies }) {
   }, [volume, setVolume, audio])
 
   return (
-    <div className=""> 
+    <div className="mx-2 my-4 p-2 border-2 border-neutral-700 rounded-xl"> 
       <button onClick={playAudio}>{playing ? "Stop" : name}</button>
-      <input type="range" max="100" min="0" onChange={(event) => setVolume(event.target.value / 100)} value={String(cookies[name] * 100)}></input>
+      <input type="range" max="100" min="0" className="accent-[#A7C7E7]" onChange={(event) => setVolume(event.target.value / 100)} value={String(cookies[name] * 100)}></input>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import AudioPlayer from './components/audioPlayer.jsx';
 import React, { useState, useEffect, useCallback } from 'react'
 import { Cookies, CookiesProvider, useCookies } from 'react-cookie';
 import Clock from './components/clock.jsx'
+import background from './assets/temp.jpg'
 import './App.css';
 
 function App() {
@@ -41,8 +42,8 @@ function App() {
 
   return (
     <CookiesProvider>
-      <section className='h-screen overflow-auto text-white bg-black'>
-        <div className='bg-slate-800 rounded-xl w-min p-3 m-3'>
+      <section className={`h-screen overflow-auto text-white bg-cover font-sans-roboto`} style={{ backgroundImage: `url(${background})` }}>
+        <div className='bg-neutral-800 rounded-xl w-min p-1 m-3 border-2 border-neutral-600'>
           <SoundEffectPlayer sound={fire} name={"Fire"} changeDictionary={changeDictionary} cookies={cookies}/>
           <SoundEffectPlayer sound={wind} name={"Wind"} changeDictionary={changeDictionary} cookies={cookies}/>
           <SoundEffectPlayer sound={rain} name={"Rain"} changeDictionary={changeDictionary} cookies={cookies}/>

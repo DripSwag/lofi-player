@@ -54,11 +54,15 @@ function Clock(){
   });
 
   return(
-    <div className='bg-slate-800 rounded-xl w-[153px] p-3 m-3' >
-      <h1>{secondsMath("//")}:{secondsMath("%")}</h1>
-      <p>{study ? "Studying" : "Resting"}</p>
-      <button onClick={startTimer}>{active ? "Stop" : "Start"}</button>
-      <button onClick={changeStudy}>Change Section</button>
+    <div className='bg-neutral-800 rounded-xl w-min p-3 m-3 border-2 border-neutral-600 ' >
+      <div className='p-0 my-4'>
+        <h1 className='text-5xl'>{secondsMath("//")}:{secondsMath("%")}</h1>
+        <p>{study ? "Studying" : "Resting"}</p>
+      </div>
+      <div className='flex flex-row gap-4'>
+        <button onClick={startTimer} className="hover:bg-neutral-700 whitespace-nowrap rounded-xl border-2 border-neutral-700 py-2 px-4">{active ? "Stop" : "Start"}</button>
+        <button onClick={changeStudy} className={`${active ? "invisible" : "block"} hover:bg-neutral-700 whitespace-nowrap rounded-xl border-2 border-neutral-700 py-2 px-4`}>Change Section</button>
+      </div>
     </div>
   );
 }
