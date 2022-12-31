@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player/youtube';
 function AudioPlayer({ changeDictionary, cookies }){
   let [playingAudio, setPlayingAudio] = useState(false)
   let [audioVolume, setAudioVolume] = useState(() => {
-    if (cookies.Audio != undefined){
+    if (cookies.Audio !== undefined){
       return cookies.Audio
     }
     else{
@@ -20,7 +20,7 @@ function AudioPlayer({ changeDictionary, cookies }){
   useEffect(() => {
     setAudioVolume(audioVolume)
     changeDictionary("Audio", audioVolume)
-  }, [setAudioVolume, audioVolume])
+  }, [setAudioVolume, audioVolume, changeDictionary])
 
   return (
     <div className='bg-neutral-800 rounded-xl w-min p-3 m-3 border-2 border-neutral-600' >
