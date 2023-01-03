@@ -35,7 +35,7 @@ function AudioPlayer({ splitCookie }){
   useEffect(() => {
     setAudioVolume(audioVolume)
     audio.volume = audioVolume
-    document.cookie = `Audio=${audioVolume};SameSite=None; Secure`
+    document.cookie = `Audio=${audioVolume}; SameSite=None; max-age=31536000; Secure`
   }, [setAudioVolume, audioVolume, audio])
 
   return (

@@ -20,7 +20,7 @@ function SoundEffectPlayer({ sound, name, splitCookie }) {
   useEffect(() => {
     setVolume(volume)
     audio.volume = volume
-    document.cookie = `${name}=${volume};SameSite=None; Secure`
+    document.cookie = `${name}=${volume}; SameSite=None; max-age=31536000; Secure`
   }, [volume, setVolume, audio, name])
 
   return (
