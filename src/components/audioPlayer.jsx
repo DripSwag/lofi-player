@@ -3,9 +3,9 @@ import one from '../assets/1 A.M Study Session  - [lofi hip hopchill beats].mp3'
 import twelve from '../assets/12 A.M Study Session  [lofi hip hopchill beats].mp3'
 import three from '../assets/3 A.M Study Session  - [lofi hip hopchill beats].mp3'
 
-function AudioPlayer({ splitCookie }){
+function AudioPlayer(){
   const [playingAudio, setPlayingAudio] = useState(false)
-  const [audioVolume, setAudioVolume] = useState(splitCookie("Audio"))
+  const [audioVolume, setAudioVolume] = useState((localStorage.getItem('Audio') === null) ? 0.5 : localStorage.getItem('Audio'))
   const [playlist] = useState([one, twelve, three]) 
   const [playListIndex, setPlayListIndex] = useState(Math.floor(Math.random() * 3))
   const [audio] = useState(new Audio(playlist[playListIndex]))
@@ -35,7 +35,7 @@ function AudioPlayer({ splitCookie }){
   useEffect(() => {
     setAudioVolume(audioVolume)
     audio.volume = audioVolume
-    document.cookie = `Audio=${audioVolume}; SameSite=None; max-age=31536000; Secure`
+    localStorage.setItem('Audio', audioVolume)
   }, [setAudioVolume, audioVolume, audio])
 
   return (

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
-function SoundEffectPlayer({ sound, name, splitCookie }) {
+function SoundEffectPlayer({ sound, name }) {
   let [audio] = useState(new Audio(sound)); 
   let [playing, setPlaying] = useState(false);
-  let [volume, setVolume] = useState(splitCookie(name))
+  let [volume, setVolume] = useState((localStorage.getItem(name) === null) ? 0.5 : localStorage.getItem(name))
   
   const playAudio = () => {
     if(!playing){
@@ -20,7 +20,7 @@ function SoundEffectPlayer({ sound, name, splitCookie }) {
   useEffect(() => {
     setVolume(volume)
     audio.volume = volume
-    document.cookie = `${name}=${volume}; SameSite=None; max-age=31536000; Secure`
+    localStorage.setItem(name, volume)
   }, [volume, setVolume, audio, name])
 
   return (
